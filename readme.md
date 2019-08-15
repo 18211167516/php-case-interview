@@ -70,3 +70,36 @@ if ($client_ip >= $range_min and $client_ip <= $range_max) {
     echo 'false';
 }
 ```
+
+### 3. 从扑克牌中随机抽5张牌，判断是不是一个顺子,即这5张牌是连续的,JQK用11、12、13表示
+```
+function eatDuck(array $arr)
+{
+        $count = count($arr);
+        if (count(array_unique($arr)) != $count) {
+            return false;//对子
+        }
+        if (max($arr) - min($arr) != $count - 1) {
+            return false;
+        }
+        return true;
+}
+
+
+function eatDuck(array $arr)
+{
+        $count = count($arr);
+        if (count(array_unique($arr)) != $count) {
+            return false;//对子
+        }
+        if (max($arr) - min($arr) != $count - 1) {
+            return false;
+        }
+        return true;
+}
+
+var_dump(eatDuck([1, 3, 5, 2, 4]));
+var_dump(eatDuck([10, 13, 11, 12, 14]));
+var_dump(eatDuck([1, 3, 5, 7, 9]));
+
+```
