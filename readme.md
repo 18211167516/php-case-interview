@@ -145,3 +145,20 @@ select * from user where rand() limit 10;
 503 服务不可用
 504 网关超时
 ```
+### 8. linux中怎么查看系统资源占用情况,同时会问到怎么查看TCP端口,TCP连接状态
+```
+top         //可能会问得更深,比如显示出来有哪些信息、你关心哪些信息、查看某个进程等
+iostat      //磁盘cpu
+free        //内存剩余
+df          //磁盘使用情况
+du          //文件占用信息
+
+ps              //查看进程信息
+netstat -anptol //查看端口占用情况,参数细节建议查文档,小心被问倒
+```
+### 9. SQL注入的原理是什么？如何防止SQL注入
+```
+通常都是低级程序员写的低级代码,未过滤用户输入导致的,现代框架的ORM一般都做过相应处理,如果需要自己处理,有两种解决方式:
+1:转义用户输入(htmlentities/htmlspecialchars),用mysql_real_escape_string方法过滤SQL语句的参数
+2:预编译sql    (最佳方式)
+```
