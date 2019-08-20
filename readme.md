@@ -185,14 +185,14 @@ Q:当没有事务的情况会出现什么问题?
 A:当在控制台，操作mysql数据库时候，如果没有事务控制，误操作就会造成数据的永久损失。
 事务的隔离级别:
 ```
+事务的隔离级别:
 
-隔离级别 | 脏读| 不可重复读 | 幻读 | 加锁读
----|:--:|---:|--:|--:|---
-读未提交(Read uncommitted)|o|o|o|不加锁
-读已提交(Read committed)|x|o|o|不加锁
-可重复读(Repeatable read)|x|x|o(mysql不会出现 x)|不加锁
-可串行读(Serializable)|x|x|x|加锁 (全表锁)
-
+|隔离级别 | 脏读| 不可重复读 | 幻读 | 加锁读|
+|---|:--:|---:|--:|--:|
+|读未提交(Read uncommitted)|o|o|o|不加锁|
+|读已提交(Read committed)|x|o|o|不加锁|
+|可重复读(Repeatable read)|x|x|o(mysql不会出现 x)|不加锁|
+|可串行读(Serializable)|x|x|x|加锁 (全表锁)|
 
 
 ```
