@@ -237,3 +237,31 @@ array_walk 函数对数组中的每个元素应用用户自定义函数。在函
 
 array_filter 函数把输入数组中的每个键值传给回调函数。如果回调函数返回 true，则把输入数组中的当前键值返回结果数组中。数组键名保持不变。
 ```
+### 14. 参数为多个时间参数的数组，返回离当前时间最近的时间
+```
+$data = [
+            '2015-02-02 11:11:11',
+            '2012-02-02 11:55:11',
+            '2019-12-02 11:33:11',
+            '2017-12-02 11:22:11',
+        ];
+        
+$time = time();
+uasort($data,function ($a,$b) use($time){
+    return abs(($time - strtotime($a))) < abs(($time - strtotime($b))) ? false : true;
+});
+
+echo array_shift($data);
+        
+$near = array_reduce($data, function($a, $b){
+   return abs((time() - strtotime($a))) < abs((time() - strtotime($b))) ? $a : $b;
+});
+
+echo $near;
+```
+### 15. echo、print、print_r的区别
+```
+echo    不是函数,没有返回值,仅用于打印信息,如果只是输出 echo 会更快
+print   有返回值,是函数,还能格式化输出
+print_r 则是打印复合类型如数组 对象
+```
